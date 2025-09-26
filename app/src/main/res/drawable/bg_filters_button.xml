@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Слой 1: Сама тень (желтый овал чуть большего размера) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/main_yellow" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+
+    <!-- Слой 2: Основная кнопка (с отступами, чтобы тень была видна) -->
+    <item
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dp"
+        android:bottom="2dp">
+        <shape android:shape="rectangle">
+            <!-- Используем тот же фон, что и в оригинальном файле bg_filters_button.xml -->
+            <solid android:color="@color/main_yellow" />
+            <corners android:radius="22dp" />
+        </shape>
+    </item>
+
+</layer-list>

@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_dark">
+
+    <LinearLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="16dp"
+        android:background="@color/main_dark"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_back"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="4dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_clapperboard"
+                android:layout_marginEnd="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Filmix"
+                android:textColor="@color/main_yellow"
+                android:textSize="24sp"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:shadowColor="@color/main_yellow"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="8"
+                android:layout_marginTop="7dp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/loading_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/main_yellow"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/content_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/header_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingBottom="20dp">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerImages"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginBottom="10dp" />
+
+            <LinearLayout
+                android:id="@+id/dotsIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp" />
+
+            <TextView
+                android:id="@+id/tv_movie_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Movie Title"
+                android:textColor="@color/main_yellow"
+                android:textSize="24sp"
+                android:textAlignment="center"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_year_genres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2024 • Action, Adventure, Sci-Fi"
+                android:textColor="@color/main_light"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:fontFamily="@font/montserrat_mediumitalic"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tv_country_duration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="USA • 2h"
+                android:textColor="@color/main_light"
+                android:textSize="16sp"
+                android:textAlignment="center"
+                android:fontFamily="@font/montserrat_mediumitalic"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tv_season_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3 seasons • Ended"
+                android:textColor="@color/main_light"
+                android:textSize="16sp"
+                android:textAlignment="center"
+                android:fontFamily="@font/montserrat_mediumitalic"
+                android:layout_marginBottom="24dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="32dp"
+                android:layout_marginTop="32dp">
+
+                <LinearLayout
+                    android:id="@+id/btn_favourite"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?android:attr/selectableItemBackgroundBorderless">
+
+                    <ImageView
+                        android:id="@+id/iv_favourite"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_favourite"
+                        android:layout_marginBottom="4dp"
+                        app:tint="@color/main_yellow" />
+
+                    <TextView
+                        android:id="@+id/tv_favourite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Favourite"
+                        android:textColor="@color/main_yellow"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/montserrat_medium" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_watch_later"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?android:attr/selectableItemBackgroundBorderless">
+
+                    <ImageView
+                        android:id="@+id/iv_later"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_later"
+                        android:layout_marginBottom="4dp"
+                        app:tint="@color/main_yellow" />
+
+                    <TextView
+                        android:id="@+id/tv_later"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Watch later"
+                        android:textColor="@color/main_yellow"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/montserrat_medium" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_viewed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?android:attr/selectableItemBackgroundBorderless">
+
+                    <ImageView
+                        android:id="@+id/iv_viewed"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_viewed"
+                        android:layout_marginBottom="4dp"
+                        app:tint="@color/main_yellow" />
+
+                    <TextView
+                        android:id="@+id/tv_viewed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Viewed"
+                        android:textColor="@color/main_yellow"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/montserrat_medium" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/trailer_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="32dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trailer"
+                    android:textColor="@color/main_yellow"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:layout_marginBottom="12dp" />
+
+                <WebView
+                    android:id="@+id/webViewTrailer"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cast"
+                android:textColor="@color/main_yellow"
+                android:textSize="20sp"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_marginBottom="12dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewCast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="32dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Film crew"
+                android:textColor="@color/main_yellow"
+                android:textSize="20sp"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_marginBottom="12dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewCrew"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="32dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

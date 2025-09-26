@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_modal_filters"
+    android:orientation="vertical"
+    android:paddingTop="4dp"
+    android:paddingHorizontal="20dp"
+    android:paddingBottom="32dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingVertical="16dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Filters"
+            android:textColor="@color/main_yellow"
+            android:textSize="28sp"
+            android:fontFamily="@font/montserrat_bold" />
+
+        <ImageView
+            android:id="@+id/btn_close"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_close"
+            android:padding="4dp"
+            app:tint="@color/main_yellow"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type"
+                android:textColor="@color/main_light"
+                android:textSize="18sp"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <CheckBox
+                    android:id="@+id/cb_movie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Movies"
+                    android:textColor="@color/main_light"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:layout_marginEnd="24dp" />
+
+                <CheckBox
+                    android:id="@+id/cb_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TV Shows"
+                    android:textColor="@color/main_light"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/montserrat_medium" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/status_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status"
+                    android:textColor="@color/main_light"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:layout_marginBottom="12dp" />
+
+                <CheckBox
+                    android:id="@+id/cb_finished"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Finished"
+                    android:textColor="@color/main_light"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:layout_marginBottom="8dp" />
+
+                <CheckBox
+                    android:id="@+id/cb_in_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="In Progress"
+                    android:textColor="@color/main_light"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/montserrat_medium" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Genre"
+                android:textColor="@color/main_light"
+                android:textSize="18sp"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_marginBottom="12dp" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/genres_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:flexWrap="wrap"
+                app:justifyContent="flex_start"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/btn_more_genres"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="More..."
+                android:textColor="@color/main_orange"
+                android:textSize="14sp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:layout_marginBottom="24dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Country"
+                android:textColor="@color/main_light"
+                android:textSize="18sp"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_marginBottom="12dp" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/selected_countries_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:flexWrap="wrap"
+                app:justifyContent="flex_start"
+                android:layout_marginBottom="8dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="24dp">
+
+                <com.example.filmix.presentation.ui.views.CustomAutoCompleteTextView
+                    android:id="@+id/et_country"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_input_gray"
+                    android:textColor="@color/main_light"
+                    android:textColorHint="@color/placeholder_light"
+                    android:hint="Choose countries..."
+                    android:paddingHorizontal="16dp"
+                    android:paddingEnd="40dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:dropDownHeight="200dp"
+                    android:popupBackground="@drawable/bg_country_dropdown"
+                    android:completionThreshold="1" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/ic_down"
+                    android:clickable="false" />
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Year"
+                android:textColor="@color/main_light"
+                android:textSize="18sp"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="24dp">
+
+                <EditText
+                    android:id="@+id/et_year_from"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_input_gray"
+                    android:textColor="@color/main_light"
+                    android:textColorHint="@color/placeholder_light"
+                    android:hint="From"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:paddingHorizontal="16dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="–"
+                    android:textColor="@color/main_light"
+                    android:textSize="18sp"
+                    android:layout_marginHorizontal="8dp" />
+
+                <EditText
+                    android:id="@+id/et_year_to"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_input_gray"
+                    android:textColor="@color/main_light"
+                    android:textColorHint="@color/placeholder_light"
+                    android:hint="To"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:paddingHorizontal="16dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:layout_marginStart="8dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rating"
+                android:textColor="@color/main_light"
+                android:textSize="18sp"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:id="@+id/rating_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/btn_more_ratings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="More..."
+                android:textColor="@color/main_orange"
+                android:textSize="14sp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:layout_marginBottom="32dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <LinearLayout
+                android:id="@+id/btn_apply_filters"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_filter_button"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="24dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Filter"
+                    android:textColor="@color/main_dark"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/montserrat_bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

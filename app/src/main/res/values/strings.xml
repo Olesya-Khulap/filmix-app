@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Filmix</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_films">Films</string>
+    <string name="nav_shows">Shows</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_profile">Profile</string>
+</resources>

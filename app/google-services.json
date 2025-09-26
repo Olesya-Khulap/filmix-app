@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "331470866339",
+    "project_id": "filmix-44aee",
+    "storage_bucket": "filmix-44aee.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:331470866339:android:e3264879ac218353af7c16",
+        "android_client_info": {
+          "package_name": "com.example.filmix"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA202X9ZwZP1Y_O535z2WdTxFhiZUy5wwk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

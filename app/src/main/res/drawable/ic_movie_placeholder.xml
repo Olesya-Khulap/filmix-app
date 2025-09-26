@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="180dp"
+    android:viewportWidth="120"
+    android:viewportHeight="180">
+
+    <!-- Фон placeholder -->
+    <path
+        android:fillColor="@color/input_gray"
+        android:pathData="M0,0h120v180h-120z" />
+
+    <!-- Рамка -->
+    <path
+        android:strokeColor="@color/main_light"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M4,4h112v172h-112z" />
+
+    <!-- Иконка фильма (клапперборд) -->
+    <path
+        android:fillColor="@color/main_light"
+        android:pathData="M40,70h40v6h-40z" />
+    <path
+        android:fillColor="@color/main_light"
+        android:pathData="M40,80h40v6h-40z" />
+    <path
+        android:fillColor="@color/main_light"
+        android:pathData="M40,90h40v6h-40z" />
+    <path
+        android:fillColor="@color/main_light"
+        android:pathData="M40,100h40v6h-40z" />
+
+    <!-- Текст "No Image" -->
+    <path
+        android:fillColor="@color/main_light"
+        android:pathData="M45,120h30v4h-30z" />
+    <path
+        android:fillColor="@color/main_light"
+        android:pathData="M50,130h20v4h-20z" />
+
+</vector>
