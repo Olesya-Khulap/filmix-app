@@ -25,7 +25,7 @@ Create `local.properties` file in root directory: sdk.dir=C:\Users\YourName\AppD
 1. Visit [The Movie Database](https://www.themoviedb.org/settings/api)
 2. Create account and get API key
 ### 3. Add API Key
-Create `local.properties` file: TMDB_BEARER_TOKEN="your_api_key_here"
+Create `local.properties` file: TMDB_API_KEY=your_api_key_here
 
 ### 4. Build and Run
 
