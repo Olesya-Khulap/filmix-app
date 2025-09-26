@@ -31,7 +31,7 @@ Create `local.properties` file: TMDB_API_KEY=your_api_key_here
 
 Open in Android Studio and run the project.
 
-* or just download .apk file from apk/ directory
+*or just download .apk file from apk/ directory*
 
 ## Features
 
