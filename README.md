@@ -17,7 +17,9 @@ Android app for browsing movies and TV shows using TMDB API. Features include de
 - Image loading: **Glide**
 
 ## Getting Started
+If just want to try out the app, download filmix-app.apk file from apk/ directory*
 
+If you want to run the project in Android Studio
 ### 1. Create local.properties
 Create `local.properties` file in root directory: sdk.dir=C:\Users\YourName\AppData\Local\Android\Sdk
 
@@ -30,8 +32,6 @@ Create `local.properties` file: TMDB_API_KEY=your_api_key_here
 ### 4. Build and Run
 
 Open in Android Studio and run the project.
-
-*or just download .apk file from apk/ directory*
 
 ## Features
 
