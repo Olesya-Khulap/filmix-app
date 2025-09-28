@@ -66,6 +66,26 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
 
     override fun initViews() {
         Log.d(TAG, "ProfileFragment: initViews() called")
+        
+        initializeAdapters()
+    }
+
+    private fun initializeAdapters() {
+        Log.d(TAG, "Initializing adapters...")
+
+        favoritesAdapter = MovieCardHorizontalAdapter(emptyList()) { movie ->
+            navigateToMovieDetail(movie)
+        }
+
+        watchLaterAdapter = MovieCardHorizontalAdapter(emptyList()) { movie ->
+            navigateToMovieDetail(movie)
+        }
+
+        viewedAdapter = MovieCardHorizontalAdapter(emptyList()) { movie ->
+            navigateToMovieDetail(movie)
+        }
+
+        Log.d(TAG, "Adapters initialized successfully")
     }
 
     override fun observeViewModel() {
@@ -90,7 +110,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
             Log.d(TAG, "Auth state changed: isLoggedIn = $isLoggedIn")
             updateUIForAuthState(isLoggedIn)
         }
-        
+
         viewModel.userName.observe(viewLifecycleOwner) { userName ->
             Log.d(TAG, "👤 User name changed: $userName")
             if (!userName.isNullOrBlank()) {
@@ -132,7 +152,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
             Log.d(TAG, "User not logged in - showing auth buttons")
             binding.profileContent.visibility = View.GONE
             binding.authContent.visibility = View.VISIBLE
-            
+
             binding.tvUsername.text = ""
 
             setupAuthClickListeners()
@@ -142,28 +162,27 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
     private fun setupRecyclerViews() {
         Log.d(TAG, "📱 Setting up RecyclerViews...")
 
-        favoritesAdapter = MovieCardHorizontalAdapter(emptyList()) { movie ->
-            navigateToMovieDetail(movie)
-        }
+        // ТОЛЬКО НАСТРАИВАЕМ RECYCLERVIEWS (адаптеры уже созданы в initViews):
         binding.recyclerFavourites.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = favoritesAdapter
         }
 
-        watchLaterAdapter = MovieCardHorizontalAdapter(emptyList()) { movie ->
-            navigateToMovieDetail(movie)
-        }
         binding.recyclerWatchLater.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = watchLaterAdapter
         }
 
-        viewedAdapter = MovieCardHorizontalAdapter(emptyList()) { movie ->
-            navigateToMovieDetail(movie)
-        }
         binding.recyclerViewed.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = viewedAdapter
+        }
+        
+        if (fullFavorites.isNotEmpty() || fullWatchLater.isNotEmpty() || fullViewed.isNotEmpty()) {
+            Log.d(TAG, "Applying previously loaded data to adapters")
+            favoritesAdapter.updateMovies(fullFavorites.take(5))
+            watchLaterAdapter.updateMovies(fullWatchLater.take(5))
+            viewedAdapter.updateMovies(fullViewed.take(5))
         }
 
         Log.d(TAG, "RecyclerViews setup complete")
@@ -280,7 +299,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
         fullFavorites = lists.favorites
         fullWatchLater = lists.watchLater
         fullViewed = lists.viewed
-
+        
         favoritesAdapter.updateMovies(lists.favorites.take(5))
         watchLaterAdapter.updateMovies(lists.watchLater.take(5))
         viewedAdapter.updateMovies(lists.viewed.take(5))
